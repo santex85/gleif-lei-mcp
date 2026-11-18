@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.santex85/gleif-lei-mcp",
+  "title": "GLEIF LEI Company Lookup",
+  "description": "Company lookup in the official GLEIF LEI registry: search, LEI records, ownership, validation.",
+  "repository": {
+    "url": "https://github.com/santex85/gleif-lei-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/santex85/gleif-lei-mcp/releases/download/v0.1.0/gleif-lei-mcp.mcpb",
+      "version": "0.1.0",
+      "fileSha256": "5875cc075f5c085b0fe72bf902257e312a74a040ba56e7bc6da26dd4d78d6025",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
