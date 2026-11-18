@@ -1,0 +1,74 @@
+{
+  "manifest_version": "0.4",
+  "name": "gleif-lei-mcp",
+  "display_name": "GLEIF LEI Company Lookup",
+  "version": "0.1.0",
+  "description": "Company lookup in the official GLEIF LEI registry: search, LEI records, ownership, validation.",
+  "long_description": "Looks up legal entities (companies, funds, branches, government bodies) in the Global LEI Index via the public GLEIF API. Fuzzy name search in any language, full LEI records, direct and ultimate parents and children, ISO 17442 checksum validation and country listings. No API key needed. LEI data is CC0 1.0; not affiliated with GLEIF.",
+  "author": {
+    "name": "santex85",
+    "url": "https://github.com/santex85"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/santex85/gleif-lei-mcp"
+  },
+  "homepage": "https://github.com/santex85/gleif-lei-mcp",
+  "support": "https://github.com/santex85/gleif-lei-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "lei",
+    "gleif",
+    "kyc",
+    "company-lookup",
+    "ownership"
+  ],
+  "server": {
+    "type": "uv",
+    "entry_point": "src/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${__dirname}",
+        "src/server.py"
+      ],
+      "env": {
+        "MCP_TRANSPORT": "stdio"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "search_companies",
+      "description": "Find legal entities in the Global LEI Index by company name (fuzzy, any language/script)."
+    },
+    {
+      "name": "get_lei",
+      "description": "Full GLEIF reference record for one LEI (20-character Legal Entity Identifier, e.g. \"5493006W3QUS5LMH6R84\")."
+    },
+    {
+      "name": "company_ownership",
+      "description": "Corporate group structure for an LEI from GLEIF Level 2 (\"who owns whom\", accounting consolidation) data."
+    },
+    {
+      "name": "validate_lei",
+      "description": "Validate an LEI: format (20 chars), ISO 17442 MOD 97-10 checksum, and - if the checksum passes - whether it exists in GLEIF and its current status."
+    },
+    {
+      "name": "list_entities",
+      "description": "List legal entities from the Global LEI Index by filters (no name)."
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "linux",
+      "win32"
+    ],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  }
+}
