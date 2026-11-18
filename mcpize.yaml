@@ -1,0 +1,10 @@
+version: 1
+name: gleif-lei-mcp
+description: Global company lookup via the official GLEIF LEI registry - fuzzy company search, full LEI records, parent/subsidiary ownership, LEI validation and country listings.
+runtime: python
+entry: src/server.py
+build:
+  install: python -m venv .venv && .venv/bin/pip install --no-cache-dir -r requirements.txt
+startCommand:
+  type: http
+  command: .venv/bin/python src/server.py
