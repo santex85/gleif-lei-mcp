@@ -222,5 +222,14 @@ async def list_entities(country: str, entity_status: str = "ACTIVE", registratio
             "count": len(res), "results": res}
 
 
+from starlette.requests import Request  # noqa: E402
+from starlette.responses import JSONResponse  # noqa: E402
+
+
+@mcp.custom_route("/health", methods=["GET"])
+async def health(_: Request) -> JSONResponse:
+    return JSONResponse({"status": "healthy"})
+
+
 if __name__ == "__main__":
     mcp.run(transport=os.environ.get("MCP_TRANSPORT", "streamable-http"))
